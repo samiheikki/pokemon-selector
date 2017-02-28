@@ -1,0 +1,44 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-item/paper-icon-item.html">
+<link rel="import" href="../paper-item/paper-item-body.html">
+
+<dom-module id="pokemon-item">
+  <template>
+    <style>
+      :host {
+        display: flex;
+      }
+      img {
+        width: 72px;
+        height: 72px;
+      }
+      paper-icon-item {
+        padding: 0;
+      }
+      paper-item-body {
+        min-height: 0;
+        padding-left: 16px;
+      }
+      .name {
+        text-transform: capitalize
+      }
+    </style>
+    <paper-icon-item>
+      <img src="https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/[[pokemon.pokemon_species.name]].png" item-icon>
+      <paper-item-body two-line>
+        <div class="name">[[pokemon.pokemon_species.name]]</div>
+        <div secondary>#[[pokemon.entry_number]]</div>
+      </paper-item-body>
+    </paper-icon-item>
+  </template>
+  <script>
+    Polymer({
+      is: 'pokemon-item',
+      properties:  {
+        pokemon: {
+          type: Object
+        }
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>pokemon-selector demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../paper-radio-group/paper-radio-group.html">
+    <link rel="import" href="../../paper-radio-button/paper-radio-button.html">
+    <link rel="import" href="../pokemon-selector.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic example</h3>
+      <demo-snippet>
+        <template>
+          <pokemon-selector></pokemon-selector>
+        </template>
+      </demo-snippet>
+    </div>
+    <div class="vertical-section-container centered">
+      <h3>Advanced example</h3>
+      <demo-snippet>
+        <template>
+          <template is="dom-bind" id="scope">
+            <pokemon-selector region="[[region]]" value="{{selected}}"></pokemon-selector>
+            Region:
+            <paper-radio-group selected="{{region}}">
+              <paper-radio-button name="kanto">Kanto</paper-radio-button>
+              <paper-radio-button name="original-johto">Johto</paper-radio-button>
+              <paper-radio-button name="hoenn">Hoenn</paper-radio-button>
+            </paper-radio-group>
+            Selected number: [[selected]]
+            <script>
+              var scope = document.querySelector('#scope');
+              scope.region = 'kanto';
+            </script>
+          </template>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
