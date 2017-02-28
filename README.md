@@ -46,8 +46,6 @@ bower install pokemon-selector
 
 1. Fork the `pokemon-selector` repository and clone it locally.
 
-1. Make sure you have [bower](https://www.bower.io) installed.
-
 1. When in the `pokemon-selector` directory, run `bower install` to install dependencies.
 
 1. Create a pull request :)
@@ -61,4 +59,4 @@ bower install pokemon-selector
 
 1. You can also open demo by adding **demo** to the URL, for example:
 
-  - http://127.0.0.1:8080/components/pokemon-selector/demo
+  - http://localhost:8080/components/pokemon-selector/demo
