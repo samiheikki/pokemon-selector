@@ -1,38 +1,64 @@
-# \<pokemon-selector\>
+![Bower version](https://img.shields.io/bower/v/pokemon-selector.svg)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/samiheikki/pokemon-selector)
 
-Dropdown select for Pokémons
+# &lt;pokemon-selector&gt;
 
-## Install the Polymer-CLI
+[Live Demo ↗](TODO)
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
+&lt;pokemon-selector&gt; is an HTML element for selecting a Pokémon from a dropdown list.
 
-## Viewing Your Application
-
+<!--
 ```
-$ polymer serve
+<custom-element-demo height="300">
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="pokemon-selector.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
 ```
-
-## Building Your Application
-
-```
-$ polymer build
-```
-
-This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
-containing a bundled (Vulcanized) and unbundled builds, both run through HTML,
-CSS, and JS optimizers.
-
-You can serve the built versions by giving `polymer serve` a folder to serve
-from:
-
-```
-$ polymer serve build/bundled
+-->
+```html
+<pokemon-selector></pokemon-selector>
 ```
 
-## Running Tests
+[<img src="https://raw.githubusercontent.com/samiheikki/pokemon-selector/master/SCREENSHOT.png" alt="Screenshot of pokemon-selector" />](TODO)
 
+## Install
 ```
-$ polymer test
+bower install pokemon-selector
 ```
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+## Usage
+```html
+<html>
+  <head>
+    <!-- Import Web Components Polyfill -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <!-- Import pokemon-selector -->
+    <link rel="import" href="bower_components/pokemon-selector/pokemon-selector.html">
+  </head>
+  <pokemon-selector region="kanto"></pokemon-selector>
+</html>
+```
+
+## Contributing
+
+1. Fork the `pokemon-selector` repository and clone it locally.
+
+1. Make sure you have [bower](https://www.bower.io) installed.
+
+1. When in the `pokemon-selector` directory, run `bower install` to install dependencies.
+
+1. Create a pull request :)
+
+
+## Running demos and tests in browser
+
+1. Install [Polymer CLI](https://www.polymer-project.org/1.0/docs/tools/polymer-cli): `npm install -g polymer-cli`
+
+2. When in the `pokemon-selector` directory, run `polymer serve --o`, browser will automatically open the component API documentation.
+
+1. You can also open demo by adding **demo** to the URL, for example:
+
+  - http://127.0.0.1:8080/components/pokemon-selector/demo
