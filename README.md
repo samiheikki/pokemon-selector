@@ -3,7 +3,7 @@
 
 # &lt;pokemon-selector&gt;
 
-[Live Demo ↗](TODO)
+[Live Demo ↗](https://suoheikki.com/pokemon-selector/)
 
 &lt;pokemon-selector&gt; is an HTML element for selecting a Pokémon from a dropdown list.
 
@@ -22,7 +22,7 @@
 <pokemon-selector></pokemon-selector>
 ```
 
-[<img src="https://raw.githubusercontent.com/samiheikki/pokemon-selector/master/SCREENSHOT.png" alt="Screenshot of pokemon-selector" />](TODO)
+[<img src="https://raw.githubusercontent.com/samiheikki/pokemon-selector/master/SCREENSHOT.png" alt="Screenshot of pokemon-selector" />](https://suoheikki.com/pokemon-selector/)
 
 ## Install
 ```
