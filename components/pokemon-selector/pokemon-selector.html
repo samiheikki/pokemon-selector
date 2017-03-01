@@ -1,0 +1,115 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../vaadin-combo-box/vaadin-combo-box.html">
+<link rel="import" href="pokemon-item.html">
+
+<!--
+`pokemon-selector`
+is an HTML element for selecting a Pokémon from a dropdown list.
+
+```html
+<pokemon-selector></pokemon-selector>
+```
+
+### Specify a region
+`<pokemon-selector>` also supports different regions.
+```html
+<pokemon-selector region="kanto"></pokemon-selector>
+```
+
+### Pokéapi
+`<pokemon-selector>` uses [Pokéapi v2](https://pokeapi.co/) for fetching data. In their documentation you can for example get the possible regions.
+
+@demo demo/index.html
+-->
+
+<dom-module id="pokemon-selector">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <iron-ajax
+      auto
+      url="https://pokeapi.co/api/v2/pokedex/[[region]]/"
+      handle-as="json"
+      last-response="{{_pokeDexResponse}}"
+      debounce-duration="100"></iron-ajax>
+
+    <vaadin-combo-box label="[[label]]" item-value-path="entry_number" item-label-path="pokemon_species.name" filtered-items="[[_filteredPokemons]]" on-filter-changed="_filterChanged" value="{{value}}" selected-item="{{selectedItem}}">
+      <template>
+        <pokemon-item pokemon="[[item]]"></pokemon-item>
+      </template>
+    </vaadin-combo-box>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'pokemon-selector',
+
+      properties: {
+        /**
+        * The label for this element.
+        */
+        label: {
+          type: String,
+          value: 'Select a Pokémon'
+        },
+        /**
+        * Specify the region of Pokémons to show. See [Pokéapi v2](https://pokeapi.co/) for possible values.
+        */
+        region: {
+          type: String,
+          value: 'national',
+        },
+        /**
+        * The Pokédex number of the selected Pokémon.
+        */
+        value: {
+          type: Number,
+          notify: true
+        },
+        /**
+        * The object of a selected Pokémon. Use the `url` for fetching more data about the selected Pokémon.
+        * ```js
+        * {
+        *   entry_number: 1,
+        *   pokemon_species: {
+        *     name: "bulbasaur",
+        *     url: "https://pokeapi.co/api/v2/pokemon-species/1/"
+        *   }
+        * }
+        * ```
+        */
+        selectedItem: {
+          type: Object,
+          notify: true
+        },
+        _pokeDexResponse: {
+          type: Object,
+          observer: '_pokeDexReponseObserver'
+        },
+        _pokemons: {
+          type: Array
+        },
+        _filteredPokemons: {
+          type: Array
+        }
+      },
+      _pokeDexReponseObserver: function(response) {
+        this._pokemons = this._filteredPokemons = response.pokemon_entries;
+      },
+      _filterChanged: function(e) {
+        if (!this._pokemons) {
+          return;
+        }
+        var filter = e.detail.value;
+        this._filteredPokemons = this._pokemons.filter(function(pokemon) {
+          return pokemon.pokemon_species.name.indexOf(filter) === 0 || pokemon.entry_number.toString().indexOf(filter) === 0;
+        });
+      }
+    });
+  </script>
+</dom-module>
