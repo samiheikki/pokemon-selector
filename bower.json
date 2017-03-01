@@ -2,6 +2,10 @@
   "name": "pokemon-selector",
   "description": "Pokémon dropdown select",
   "main": "pokemon-selector.html",
+  "authors": [
+    "Sami Suo-Heikki <suoheikki.sami@gmail.com>"
+  ],
+  "license": "MIT",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "paper-item": "^1.2.1",
