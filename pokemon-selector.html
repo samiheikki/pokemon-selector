@@ -37,7 +37,7 @@ is an HTML element for selecting a Pokémon from a dropdown list.
       last-response="{{_pokeDexResponse}}"
       debounce-duration="100"></iron-ajax>
 
-    <vaadin-combo-box label="[[label]]" item-value-path="entry_number" item-label-path="pokemon_species.name" filtered-items="[[_filteredPokemons]]" on-filter-changed="_filterChanged" value="{{value}}">
+    <vaadin-combo-box label="[[label]]" item-value-path="entry_number" item-label-path="pokemon_species.name" filtered-items="[[_filteredPokemons]]" on-filter-changed="_filterChanged" value="{{value}}" selected-item="{{selectedItem}}">
       <template>
         <pokemon-item pokemon="[[item]]"></pokemon-item>
       </template>
@@ -50,16 +50,41 @@ is an HTML element for selecting a Pokémon from a dropdown list.
       is: 'pokemon-selector',
 
       properties: {
+        /**
+        * The label for this element.
+        */
         label: {
           type: String,
           value: 'Select a Pokémon'
         },
+        /**
+        * Specify the region of Pokémons to show. See [Pokéapi v2](http://pokeapi.co/) for possible values.
+        */
         region: {
           type: String,
           value: 'national',
         },
+        /**
+        * The Pokédex number of the selected Pokémon.
+        */
         value: {
           type: Number,
+          notify: true
+        },
+        /**
+        * The object of a selected Pokémon. Use the `url` for fetching more data about the selected Pokémon.
+        * ```js
+        * {
+        *   entry_number: 1,
+        *   pokemon_species: {
+        *     name: "bulbasaur",
+        *     url: "http://pokeapi.co/api/v2/pokemon-species/1/"
+        *   }
+        * }
+        * ```
+        */
+        selectedItem: {
+          type: Object,
           notify: true
         },
         _pokeDexResponse: {
