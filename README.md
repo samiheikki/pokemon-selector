@@ -51,7 +51,7 @@ bower install pokemon-selector
 1. Create a pull request :)
 
 
-## Running demos and tests in browser
+## Running demos in browser
 
 1. Install [Polymer CLI](https://www.polymer-project.org/1.0/docs/tools/polymer-cli): `npm install -g polymer-cli`
 
