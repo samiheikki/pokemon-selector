@@ -107,7 +107,7 @@ is an HTML element for selecting a Pokémon from a dropdown list.
         }
         var filter = e.detail.value;
         this._filteredPokemons = this._pokemons.filter(function(pokemon) {
-          return pokemon.pokemon_species.name.indexOf(filter) === 0 || pokemon.entry_number.toString().indexOf(filter) === 0;
+          return pokemon.pokemon_species.name.indexOf(filter.toLowerCase()) === 0 || pokemon.entry_number.toString().indexOf(filter) === 0;
         });
       }
     });
